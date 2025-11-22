@@ -6,6 +6,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
