@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import logo from '../assets/RowanSecurity.png'
+import logo from '../assets/RowanSecurity2.png'
 import './Header.css'
 
 const Header = () => {
