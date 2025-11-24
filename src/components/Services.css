@@ -1,14 +1,35 @@
 .services {
   padding: 6rem 0;
-  background:
-    linear-gradient(-45deg, #f8f9fa, #ffffff, #f1f3f4, #fafbfc, #f5f7fa),
-    radial-gradient(circle at 30% 20%, rgba(102, 102, 102, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(153, 153, 153, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(136, 136, 136, 0.02) 0%, transparent 50%);
-  background-size: 400% 400%, 600px 600px, 800px 800px, 1000px 1000px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   position: relative;
   overflow: hidden;
-  animation: gradientShift 15s ease infinite, backgroundFloat 20s ease-in-out infinite;
+}
+
+/* Reduce animations on low-performance devices */
+@media (prefers-reduced-motion: reduce) {
+  .services {
+    animation: none;
+  }
+
+  .services .bg-shape-1,
+  .services .bg-shape-2,
+  .services .bg-shape-3,
+  .services .float-circle-1,
+  .services .float-circle-2,
+  .services .float-circle-3,
+  .services .float-circle-4,
+  .services .geo-shape-1,
+  .services .geo-shape-2,
+  .services .geo-shape-3,
+  .services .wave-1,
+  .services .wave-2,
+  .services .grid-pattern,
+  .services .dots-pattern,
+  .services .particle-1,
+  .services .particle-2,
+  .services .particle-3 {
+    animation: none !important;
+  }
 }
 
 .services::before {
@@ -45,138 +66,98 @@
   position: absolute;
   top: 8%;
   left: 20%;
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(135deg, rgba(136, 136, 136, 0.18), rgba(102, 102, 102, 0.1));
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, rgba(136, 136, 136, 0.12), rgba(102, 102, 102, 0.08));
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  animation: float-reverse 25s ease-in-out infinite;
+  animation: floatSimple 30s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.4;
   z-index: 1;
+  will-change: transform;
 }
 
 .services .bg-shape-2 {
   position: absolute;
   top: 75%;
   right: 10%;
-  width: 150px;
-  height: 150px;
-  background: linear-gradient(45deg, rgba(153, 153, 153, 0.15), rgba(119, 119, 119, 0.08));
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(45deg, rgba(153, 153, 153, 0.1), rgba(119, 119, 119, 0.06));
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  animation: float 18s ease-in-out infinite reverse;
+  animation: floatSimple 35s ease-in-out infinite reverse;
   pointer-events: none;
-  opacity: 0.65;
+  opacity: 0.45;
   z-index: 1;
+  will-change: transform;
 }
 
 .services .bg-shape-3 {
   position: absolute;
   bottom: 20%;
   right: 30%;
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(135deg, rgba(102, 102, 102, 0.13), rgba(136, 136, 136, 0.09));
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(102, 102, 102, 0.09), rgba(136, 136, 136, 0.07));
   border-radius: 50% 20% 50% 20%;
-  animation: float-reverse 22s ease-in-out infinite;
+  animation: floatSimple 28s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.35;
   z-index: 1;
+  will-change: transform;
 }
 
-/* Animated Particles */
+/* Animated Particles - Optimized */
 .services .particle {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  z-index: 2;
+  z-index: 1;
+  will-change: transform;
 }
 
 .services .particle-1 {
-  width: 12px;
-  height: 12px;
-  background: linear-gradient(45deg, rgba(102, 102, 102, 0.12), rgba(153, 153, 153, 0.08));
-  top: 15%;
-  left: 30%;
-  animation: particleFloat1 25s ease-in-out infinite;
-  opacity: 0.8;
+  width: 10px;
+  height: 10px;
+  background: rgba(102, 102, 102, 0.08);
+  top: 25%;
+  left: 25%;
+  animation: particleSimple1 25s ease-in-out infinite;
+  opacity: 0.6;
 }
 
 .services .particle-2 {
-  width: 16px;
-  height: 16px;
-  background: linear-gradient(45deg, rgba(136, 136, 136, 0.1), rgba(102, 102, 102, 0.09));
-  top: 80%;
-  right: 20%;
-  animation: particleFloat2 30s ease-in-out infinite reverse;
-  opacity: 0.75;
+  width: 12px;
+  height: 12px;
+  background: rgba(136, 136, 136, 0.06);
+  top: 70%;
+  right: 25%;
+  animation: particleSimple2 30s ease-in-out infinite reverse;
+  opacity: 0.5;
 }
 
-.services .particle-3 {
-  width: 10px;
-  height: 10px;
-  background: linear-gradient(45deg, rgba(119, 119, 119, 0.11), rgba(136, 136, 136, 0.07));
-  bottom: 40%;
-  left: 15%;
-  animation: particleFloat3 20s ease-in-out infinite;
-  opacity: 0.85;
-}
 
-.services .particle-4 {
-  width: 14px;
-  height: 14px;
-  background: linear-gradient(45deg, rgba(153, 153, 153, 0.09), rgba(119, 119, 119, 0.1));
-  top: 35%;
-  right: 8%;
-  animation: particleFloat4 35s ease-in-out infinite reverse;
-  opacity: 0.8;
-}
-
-.services .particle-5 {
-  width: 18px;
-  height: 18px;
-  background: linear-gradient(45deg, rgba(102, 102, 102, 0.08), rgba(136, 136, 136, 0.11));
-  bottom: 25%;
-  left: 40%;
-  animation: particleFloat5 28s ease-in-out infinite;
-  opacity: 0.9;
-}
-
-/* Wave-like background elements */
+/* Wave-like background elements - Optimized */
 .services .wave-bg {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(45deg, rgba(102, 102, 102, 0.12), rgba(136, 136, 136, 0.08));
+  background: rgba(102, 102, 102, 0.06);
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.3;
   z-index: 1;
+  will-change: transform;
 }
 
 .services .wave-1 {
-  width: 400px;
-  height: 400px;
-  top: -50px;
-  right: -50px;
-  animation: waveFlow1 40s ease-in-out infinite;
-}
-
-.services .wave-2 {
-  width: 350px;
-  height: 350px;
-  bottom: -30px;
-  left: -30px;
-  animation: waveFlow2 35s ease-in-out infinite reverse;
-}
-
-.services .wave-3 {
   width: 300px;
   height: 300px;
-  top: 50%;
-  left: -20px;
-  animation: waveFlow3 45s ease-in-out infinite;
+  top: -30px;
+  right: -30px;
+  animation: waveSimple1 50s ease-in-out infinite;
 }
 
-/* Animated grid pattern */
+
+/* Animated grid pattern - Optimized */
 .services .grid-pattern {
   position: absolute;
   top: 0;
@@ -184,69 +165,40 @@
   right: 0;
   bottom: 0;
   background-image:
-    linear-gradient(rgba(102, 102, 102, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(102, 102, 102, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(102, 102, 102, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102, 102, 102, 0.02) 1px, transparent 1px);
   background-size: 80px 80px;
-  animation: gridMove 60s linear infinite;
+  animation: gridSimple 150s linear infinite;
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.5;
   z-index: 1;
+  will-change: background-position;
 }
 
-/* Floating circles */
+/* Optimized floating circles - reduced to 2 */
 .services .float-circle-1 {
   position: absolute;
-  width: 180px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  background: linear-gradient(45deg, rgba(102, 102, 102, 0.25), rgba(153, 153, 153, 0.15));
-  top: 5%;
-  left: 2%;
-  animation: floatCircle1 25s ease-in-out infinite;
+  background: rgba(102, 102, 102, 0.08);
+  top: 10%;
+  left: 5%;
+  animation: floatSimple1 30s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.8;
   z-index: 1;
 }
 
 .services .float-circle-2 {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: linear-gradient(45deg, rgba(136, 136, 136, 0.22), rgba(102, 102, 102, 0.12));
-  top: 70%;
-  left: 8%;
-  animation: floatCircle2 30s ease-in-out infinite reverse;
+  background: rgba(136, 136, 136, 0.06);
+  bottom: 20%;
+  right: 10%;
+  animation: floatSimple2 35s ease-in-out infinite reverse;
   pointer-events: none;
-  opacity: 0.75;
-  z-index: 1;
-}
-
-.services .float-circle-3 {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(119, 119, 119, 0.2), rgba(136, 136, 136, 0.14));
-  bottom: 5%;
-  left: 25%;
-  animation: floatCircle3 35s ease-in-out infinite;
-  pointer-events: none;
-  opacity: 0.7;
-  z-index: 1;
-}
-
-.services .float-circle-4 {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(153, 153, 153, 0.18), rgba(119, 119, 119, 0.12));
-  top: 25%;
-  right: 3%;
-  animation: floatCircle4 28s ease-in-out infinite reverse;
-  pointer-events: none;
-  opacity: 0.8;
   z-index: 1;
 }
 
@@ -265,47 +217,21 @@
   z-index: 1;
 }
 
-.services .geo-shape-2 {
-  position: absolute;
-  width: 110px;
-  height: 110px;
-  background: linear-gradient(45deg, rgba(153, 153, 153, 0.2), rgba(102, 102, 102, 0.13));
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  bottom: 15%;
-  left: 35%;
-  animation: geoRotate2 45s linear infinite reverse;
-  pointer-events: none;
-  opacity: 0.75;
-  z-index: 1;
-}
 
-.services .geo-shape-3 {
-  position: absolute;
-  width: 135px;
-  height: 135px;
-  background: linear-gradient(45deg, rgba(119, 119, 119, 0.18), rgba(153, 153, 153, 0.11));
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  top: 10%;
-  right: 15%;
-  animation: geoRotate3 50s linear infinite;
-  pointer-events: none;
-  opacity: 0.8;
-  z-index: 1;
-}
-
-/* Animated dots pattern */
+/* Animated dots pattern - Optimized */
 .services .dots-pattern {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: radial-gradient(circle, rgba(102, 102, 102, 0.15) 1.5px, transparent 1px);
-  background-size: 60px 60px;
-  animation: dotsDrift 80s linear infinite;
+  background-image: radial-gradient(circle, rgba(102, 102, 102, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: dotsDrift 150s linear infinite;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.4;
   z-index: 1;
+  will-change: background-position;
 }
 
 @keyframes gridMove {
@@ -485,6 +411,15 @@
   }
 }
 
+@keyframes floatSimple {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -15px, 0) rotate(5deg);
+  }
+}
+
 @keyframes float-reverse {
   0%, 100% {
     transform: translateY(0px) rotate(0deg) scale(1);
@@ -500,49 +435,31 @@
   }
 }
 
-/* Particle floating animations */
+/* Optimized particle animations */
 @keyframes particleFloat1 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
-    opacity: 0.3;
-  }
-  25% {
-    transform: translateY(-30px) translateX(20px) scale(1.2);
-    opacity: 0.6;
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-15px) translateX(40px) scale(0.8);
-    opacity: 0.4;
-  }
-  75% {
-    transform: translateY(20px) translateX(10px) scale(1.1);
-    opacity: 0.5;
+    transform: translate3d(15px, -20px, 0);
   }
 }
 
 @keyframes particleFloat2 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
-    opacity: 0.4;
+    transform: translate3d(0, 0, 0);
   }
-  33% {
-    transform: translateY(25px) translateX(-30px) scale(1.3);
-    opacity: 0.7;
-  }
-  66% {
-    transform: translateY(-20px) translateX(-15px) scale(0.9);
-    opacity: 0.5;
+  50% {
+    transform: translate3d(-12px, 18px, 0);
   }
 }
 
 @keyframes particleFloat3 {
   0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
-    opacity: 0.2;
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-40px) translateX(25px) scale(1.4);
-    opacity: 0.6;
+    transform: translate3d(20px, -15px, 0);
   }
 }
 
@@ -584,38 +501,22 @@
   }
 }
 
-/* Wave flow animations */
-@keyframes waveFlow1 {
+/* Simplified wave animations */
+@keyframes waveSimple1 {
   0%, 100% {
-    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
-    opacity: 0.1;
-  }
-  25% {
-    transform: translateX(-20px) translateY(-30px) scale(1.1) rotate(90deg);
-    opacity: 0.2;
+    transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translateX(-40px) translateY(20px) scale(0.9) rotate(180deg);
-    opacity: 0.15;
-  }
-  75% {
-    transform: translateX(10px) translateY(40px) scale(1.05) rotate(270deg);
-    opacity: 0.18;
+    transform: translate3d(-15px, -10px, 0) scale(1.05);
   }
 }
 
-@keyframes waveFlow2 {
+@keyframes waveSimple2 {
   0%, 100% {
-    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
-    opacity: 0.08;
+    transform: translate3d(0, 0, 0) scale(1);
   }
-  33% {
-    transform: translateX(25px) translateY(-35px) scale(1.2) rotate(120deg);
-    opacity: 0.15;
-  }
-  66% {
-    transform: translateX(-15px) translateY(25px) scale(0.8) rotate(240deg);
-    opacity: 0.12;
+  50% {
+    transform: translate3d(12px, 8px, 0) scale(0.95);
   }
 }
 
@@ -669,11 +570,12 @@
   padding: 2.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e9ecef;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
   opacity: 0;
   transform: translateY(60px) scale(0.9);
   position: relative;
   overflow: hidden;
+  will-change: transform, opacity;
   backdrop-filter: blur(10px);
 }
 
@@ -727,15 +629,11 @@
 @keyframes cardEntrance {
   0% {
     opacity: 0;
-    transform: translateY(60px) scale(0.9);
-  }
-  50% {
-    opacity: 0.7;
-    transform: translateY(15px) scale(0.95);
+    transform: translate3d(0, 60px, 0) scale(0.9);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 

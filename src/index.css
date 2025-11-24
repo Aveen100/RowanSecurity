@@ -12,6 +12,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Performance optimizations for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize scrolling on touch devices */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .services .grid-pattern,
+  .services .dots-pattern,
+  .services .particle-1,
+  .services .particle-2,
+  .services .wave-1,
+  .services .float-circle-1,
+  .services .float-circle-2,
+  .services .geo-shape-1 {
+    animation: none !important;
+  }
+
+  .hero-text,
+  .hero-stats,
+  .service-card {
+    animation: none !important;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -63,6 +97,7 @@ input, textarea, select {
   font-family: inherit;
   font-size: inherit;
 }
+
 
 ::-webkit-scrollbar {
   width: 8px;

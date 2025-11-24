@@ -12,15 +12,20 @@ const Hero = () => {
     setIsVisible(true)
 
     // Start hero counter animations immediately (no typing animation for now)
-    setTimeout(() => {
+    const counterTimeout = setTimeout(() => {
       animateHeroCounter('clients', 500, 2500)
       animateHeroCounter('monitoring', 24, 1500)
       animateHeroCounter('experience', 15, 2000)
     }, 1000)
+
+    return () => {
+      clearTimeout(counterTimeout)
+    }
   }, [])
 
   const animateHeroCounter = (key, target, duration) => {
     const start = Date.now()
+
     const step = () => {
       const progress = Math.min((Date.now() - start) / duration, 1)
       const easeOutQuart = 1 - Math.pow(1 - progress, 4)
@@ -35,6 +40,7 @@ const Hero = () => {
         requestAnimationFrame(step)
       }
     }
+
     requestAnimationFrame(step)
   }
 
@@ -55,15 +61,15 @@ const Hero = () => {
             <span className="hero-title-secondary">Future Today</span>
           </h1>
           <p className="hero-subtitle">
-            Professional security solutions for businesses and individuals across the UK.
-            Trust, reliability, and cutting-edge technology for comprehensive protection.
+            Professional security services including waking watch, fire wardens, CCTV monitoring,
+            security guards, fire alarm monitoring, and key holding across the UK.
           </p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={scrollToServices}>
               Our Services
             </button>
             <button className="btn-secondary" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
-              Get Quote
+              Get Free Quote
             </button>
           </div>
         </div>
@@ -74,7 +80,7 @@ const Hero = () => {
           </div>
           <div className="stat-item">
             <div className="stat-number">{heroCounters.monitoring}</div>
-            <div className="stat-label">Monitoring</div>
+            <div className="stat-label">24/7 Monitoring</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">{heroCounters.experience}</div>

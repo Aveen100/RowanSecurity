@@ -6,53 +6,53 @@ const Services = () => {
 
   const services = [
     {
-      icon: '🔒',
-      title: 'Security Consulting',
-      description: 'Expert security assessments and strategic planning to protect your business assets and reduce vulnerabilities.',
-      features: ['Risk Assessment', 'Security Audits', 'Strategic Planning', 'Compliance Review']
+      icon: '👁️',
+      title: 'Waking Watch',
+      description: '24/7 monitoring and rapid response services to protect your property during non-business hours and emergency situations.',
+      features: ['24/7 Monitoring', 'Rapid Response', 'Property Checks', 'Emergency Response', 'Fire Alarm Response', 'Hybrid Solutions']
+    },
+    {
+      icon: '🚨',
+      title: 'Fire Wardens',
+      description: 'Professional fire safety personnel trained to manage evacuation procedures and ensure building safety compliance.',
+      features: ['Evacuation Management', 'Safety Training', 'Compliance Checks', 'Emergency Procedures', 'Building Safety', 'Staff Training']
     },
     {
       icon: '📹',
-      title: 'CCTV Systems',
-      description: 'Advanced surveillance solutions with 24/7 monitoring and intelligent video analytics for comprehensive coverage.',
-      features: ['HD Cameras', 'Night Vision', 'Remote Access', 'Motion Detection']
-    },
-    {
-      icon: '🚪',
-      title: 'Access Control',
-      description: 'Modern access control systems with biometric authentication, key cards, and mobile credentials.',
-      features: ['Biometric Access', 'Smart Locks', 'Visitor Management', 'Time & Attendance']
-    },
-    {
-      icon: '👥',
-      title: 'Security Personnel',
-      description: 'Professional security guards and personnel trained in the latest security protocols and emergency response.',
-      features: ['Trained Guards', 'Event Security', 'Patrol Services', 'Emergency Response']
+      title: 'CCTV Monitoring',
+      description: 'Advanced surveillance systems with real-time monitoring and intelligent video analytics for comprehensive security coverage.',
+      features: ['24/7 Monitoring', 'HD Cameras', 'Remote Access', 'Motion Detection', 'Video Analytics', 'Incident Recording']
     },
     {
       icon: '🛡️',
-      title: 'Cyber Security',
-      description: 'Comprehensive digital protection against cyber threats, data breaches, and online vulnerabilities.',
-      features: ['Network Security', 'Data Protection', 'Incident Response', 'Security Training']
+      title: 'Security Guards',
+      description: 'Professional security personnel trained in the latest protocols, providing static security, mobile patrols, and emergency response.',
+      features: ['Trained Personnel', 'Static Security', 'Mobile Patrols', 'Emergency Response', 'Access Control', '24/7 Availability']
     },
     {
-      icon: '🏢',
-      title: 'Commercial Security',
-      description: 'Complete security solutions for businesses including office complexes, retail spaces, and industrial facilities.',
-      features: ['Site Surveys', 'Custom Solutions', 'Maintenance', '24/7 Support']
+      icon: '🔥',
+      title: 'Fire Alarm Monitoring',
+      description: 'Comprehensive fire alarm systems monitoring with immediate response capabilities to protect lives and property.',
+      features: ['24/7 Monitoring', 'Immediate Response', 'System Maintenance', 'Compliance Testing', 'Alarm Verification', 'Emergency Protocols']
+    },
+    {
+      icon: '🔑',
+      title: 'Key Holding',
+      description: 'Secure key management and emergency access services ensuring authorized personnel can access premises when needed.',
+      features: ['Secure Storage', 'Emergency Access', 'Authorized Personnel', 'Access Logging', '24/7 Availability', 'Chain of Custody']
     }
   ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const cardIndex = parseInt(entry.target.dataset.index)
-            // Add staggered delay for more dramatic effect
+            // Reduced stagger delay for better performance
             setTimeout(() => {
               setVisibleCards(prev => [...new Set([...prev, cardIndex])])
-            }, cardIndex * 150) // 150ms stagger between cards
+            }, cardIndex * 100) // Reduced from 150ms to 100ms
           }
         })
       },
@@ -70,39 +70,20 @@ const Services = () => {
 
   return (
     <section id="services" className="services">
-      {/* Existing shapes */}
+      {/* Optimized background elements - reduced from 19 to 6 */}
       <div className="bg-shape-1"></div>
       <div className="bg-shape-2"></div>
       <div className="bg-shape-3"></div>
 
-      {/* Animated particles */}
+      {/* Reduced particles from 5 to 2 */}
       <div className="particle particle-1"></div>
       <div className="particle particle-2"></div>
-      <div className="particle particle-3"></div>
-      <div className="particle particle-4"></div>
-      <div className="particle particle-5"></div>
 
-      {/* Wave backgrounds */}
+      {/* Reduced waves from 3 to 1 */}
       <div className="wave-bg wave-1"></div>
-      <div className="wave-bg wave-2"></div>
-      <div className="wave-bg wave-3"></div>
 
-      {/* Animated grid pattern */}
+      {/* Keep grid pattern but optimize */}
       <div className="grid-pattern"></div>
-
-      {/* Floating circles */}
-      <div className="float-circle-1"></div>
-      <div className="float-circle-2"></div>
-      <div className="float-circle-3"></div>
-      <div className="float-circle-4"></div>
-
-      {/* Geometric shapes */}
-      <div className="geo-shape-1"></div>
-      <div className="geo-shape-2"></div>
-      <div className="geo-shape-3"></div>
-
-      {/* Dots pattern */}
-      <div className="dots-pattern"></div>
 
       <div className="services-container">
         <div className="services-header">

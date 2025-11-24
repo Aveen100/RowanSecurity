@@ -37,20 +37,20 @@ const Contact = () => {
     {
       icon: '📞',
       title: 'Phone',
-      details: ['+44 20 1234 5678', '+44 161 987 6543'],
-      description: 'Mon-Fri: 9AM-6PM'
+      details: ['07405 428259'],
+      description: 'Available 24/7 for emergencies'
     },
     {
       icon: '📧',
       title: 'Email',
-      details: ['info@rowansecurity.co.uk', 'support@rowansecurity.co.uk'],
+      details: ['rowan.secu@gmail.com'],
       description: 'We respond within 24 hours'
     },
     {
       icon: '📍',
       title: 'Office',
-      details: ['123 Security Street', 'London, EC1A 1BB', 'United Kingdom'],
-      description: 'Visit us for consultations'
+      details: ['9 Rectory Road', 'Manchester, M8 5EA'],
+      description: 'Head office location'
     }
   ]
 
@@ -58,9 +58,9 @@ const Contact = () => {
     <section id="contact" className="contact">
       <div className="contact-container">
         <div className="contact-header">
-          <h2 className="contact-title">Get In Touch</h2>
+          <h2 className="contact-title">Contact Us</h2>
           <p className="contact-subtitle">
-            Ready to enhance your security? Contact our experts for a free consultation
+            Need professional security services? Contact our team for a free quote and consultation
           </p>
         </div>
 

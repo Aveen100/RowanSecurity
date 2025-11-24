@@ -15,7 +15,7 @@ const About = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !isVisible) {
             setIsVisible(true)
 
             // Start counter animations
@@ -40,10 +40,11 @@ const About = () => {
     if (element) observer.observe(element)
 
     return () => observer.disconnect()
-  }, [])
+  }, [isVisible])
 
   const animateCounter = (key, target, duration) => {
     const start = Date.now()
+
     const step = () => {
       const progress = Math.min((Date.now() - start) / duration, 1)
       const easeOutQuart = 1 - Math.pow(1 - progress, 4)
@@ -59,29 +60,30 @@ const About = () => {
         requestAnimationFrame(step)
       }
     }
+
     requestAnimationFrame(step)
   }
 
   const values = [
     {
       icon: '🛡️',
-      title: 'Protection First',
-      description: 'Your safety and security are our top priorities in every solution we provide.'
+      title: '24/7 Protection',
+      description: 'Round-the-clock security services ensuring your business is protected at all times.'
     },
     {
       icon: '⚡',
       title: 'Rapid Response',
-      description: 'Quick deployment and immediate action when security matters most.'
+      description: 'Immediate action and emergency response when security matters most.'
     },
     {
-      icon: '🎯',
-      title: 'Precision & Accuracy',
-      description: 'Tailored solutions designed specifically for your unique security needs.'
+      icon: '👁️',
+      title: 'Advanced Monitoring',
+      description: 'State-of-the-art surveillance and monitoring systems for comprehensive coverage.'
     },
     {
-      icon: '🤝',
-      title: 'Trust & Reliability',
-      description: 'Building lasting relationships through consistent, dependable service.'
+      icon: '🔥',
+      title: 'Fire Safety Excellence',
+      description: 'Professional fire safety management and compliance with industry standards.'
     }
   ]
 
@@ -93,19 +95,19 @@ const About = () => {
             <h2 className="about-title">About Rowan Security UK Limited</h2>
             <div className="about-description">
               <p>
-                With over 15 years of experience in the security industry, Rowan Security UK Limited
-                has established itself as a trusted partner for businesses and individuals seeking
-                comprehensive security solutions across the United Kingdom.
+                Rowan Security UK Limited has been providing security to businesses across the UK since 2003.
+                We offer a comprehensive range of professional security services designed to protect your business,
+                assets, and people with the highest standards of reliability and professionalism.
               </p>
               <p>
-                Our team of certified security professionals combines cutting-edge technology with
-                proven methodologies to deliver unparalleled protection. We understand that each
-                client has unique security requirements, which is why we provide customized solutions
-                that adapt to your specific needs.
+                From our base in the UK, we manage a team of experienced security professionals who help businesses
+                of all sectors and sizes operate smoothly and securely. Our expertise spans waking watch services,
+                fire safety management, CCTV monitoring, security personnel, and comprehensive alarm systems.
               </p>
               <p>
-                From initial consultation to ongoing maintenance and support, we ensure that your
-                security systems remain effective, up-to-date, and fully operational around the clock.
+                At Rowan Security, we're your one-stop solution for all security needs. Whether you require security
+                guards, fire wardens, key holding services, or advanced monitoring systems, we provide tailored packages
+                to meet your specific requirements with a single point of contact for your convenience.
               </p>
             </div>
 
