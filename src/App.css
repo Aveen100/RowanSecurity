@@ -32,6 +32,21 @@
   padding: 0 2rem;
 }
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Ensure no smooth scrolling */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -61,10 +76,7 @@
 .mb-4 { margin-bottom: 2rem; }
 .mb-5 { margin-bottom: 2.5rem; }
 
-/* Smooth scrolling for the entire app */
-html {
-  scroll-behavior: smooth;
-}
+/* Removed smooth scrolling for better performance */
 
 /* Ensure proper spacing between sections */
 .app > * + * {

@@ -3,51 +3,22 @@ import './Hero.css'
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [heroCounters, setHeroCounters] = useState({
-    clients: 0,
-    monitoring: 0,
-    experience: 0
-  })
+
+  // Static counter values for better performance
+  const heroCounters = {
+    clients: '500+',
+    monitoring: '24/7',
+    experience: '15+'
+  }
+
   useEffect(() => {
     setIsVisible(true)
-
-    // Start hero counter animations immediately (no typing animation for now)
-    const counterTimeout = setTimeout(() => {
-      animateHeroCounter('clients', 500, 2500)
-      animateHeroCounter('monitoring', 24, 1500)
-      animateHeroCounter('experience', 15, 2000)
-    }, 1000)
-
-    return () => {
-      clearTimeout(counterTimeout)
-    }
   }, [])
-
-  const animateHeroCounter = (key, target, duration) => {
-    const start = Date.now()
-
-    const step = () => {
-      const progress = Math.min((Date.now() - start) / duration, 1)
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
-
-      setHeroCounters(prev => ({
-        ...prev,
-        [key]: key === 'monitoring' ? Math.floor(easeOutQuart * target) + '/7' :
-               Math.floor(easeOutQuart * target) + '+'
-      }))
-
-      if (progress < 1) {
-        requestAnimationFrame(step)
-      }
-    }
-
-    requestAnimationFrame(step)
-  }
 
   const scrollToServices = () => {
     const element = document.getElementById('services')
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView()
     }
   }
 
@@ -68,7 +39,7 @@ const Hero = () => {
             <button className="btn-primary" onClick={scrollToServices}>
               Our Services
             </button>
-            <button className="btn-secondary" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+            <button className="btn-secondary" onClick={() => document.getElementById('contact').scrollIntoView()}>
               Get Free Quote
             </button>
           </div>

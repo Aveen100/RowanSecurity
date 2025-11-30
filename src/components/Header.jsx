@@ -1,19 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import logo from '../assets/RowanSecurity2.png'
 import './Header.css'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const scrollTimeoutRef = useRef(null)
 
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+  const handleScroll = useCallback(() => {
+    // Clear existing timeout
+    if (scrollTimeoutRef.current) {
+      cancelAnimationFrame(scrollTimeoutRef.current)
     }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    // Use requestAnimationFrame for smooth throttling
+    scrollTimeoutRef.current = requestAnimationFrame(() => {
+      setIsScrolled(window.scrollY > 50)
+    })
   }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeoutRef.current) {
+        cancelAnimationFrame(scrollTimeoutRef.current)
+      }
+    }
+  }, [handleScroll])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)

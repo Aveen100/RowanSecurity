@@ -12,10 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Performance optimizations for smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+/* Scroll behavior optimized for performance - smooth scrolling handled by App.css */
 
 /* Optimize scrolling on touch devices */
 * {

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './Services.css'
 
 const Services = () => {
   const [visibleCards, setVisibleCards] = useState([])
+  const cardsRef = useRef([])
 
   const services = [
     {
@@ -49,40 +50,27 @@ const Services = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const cardIndex = parseInt(entry.target.dataset.index)
-            // Reduced stagger delay for better performance
-            setTimeout(() => {
-              setVisibleCards(prev => [...new Set([...prev, cardIndex])])
-            }, cardIndex * 100) // Reduced from 150ms to 100ms
+            setVisibleCards(prev => [...new Set([...prev, cardIndex])])
           }
         })
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px' // Trigger slightly before fully visible
+        rootMargin: '0px 0px -50px 0px'
       }
     )
 
-    const cards = document.querySelectorAll('.service-card')
-    cards.forEach(card => observer.observe(card))
+    // Use refs instead of DOM queries for better performance
+    cardsRef.current.forEach(card => {
+      if (card) observer.observe(card)
+    })
 
     return () => observer.disconnect()
   }, [])
 
   return (
     <section id="services" className="services">
-      {/* Optimized background elements - reduced from 19 to 6 */}
-      <div className="bg-shape-1"></div>
-      <div className="bg-shape-2"></div>
-      <div className="bg-shape-3"></div>
-
-      {/* Reduced particles from 5 to 2 */}
-      <div className="particle particle-1"></div>
-      <div className="particle particle-2"></div>
-
-      {/* Reduced waves from 3 to 1 */}
-      <div className="wave-bg wave-1"></div>
-
-      {/* Keep grid pattern but optimize */}
+      {/* Minimal background elements for performance */}
       <div className="grid-pattern"></div>
 
       <div className="services-container">
@@ -97,6 +85,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
+              ref={el => cardsRef.current[index] = el}
               data-index={index}
               className={`service-card ${visibleCards.includes(index) ? 'visible' : ''}`}
             >
@@ -128,7 +117,7 @@ const Services = () => {
             <p>Contact our experts to discuss your specific security requirements</p>
             <button
               className="cta-btn"
-              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('contact').scrollIntoView()}
             >
               Get Free Consultation
             </button>
