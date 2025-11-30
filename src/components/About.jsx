@@ -12,10 +12,28 @@ const About = () => {
   })
 
   useEffect(() => {
+    // Fallback: Show content after a delay on mobile devices to prevent blank screens
+    const mobileFallback = setTimeout(() => {
+      if (!isVisible && window.innerWidth <= 768) {
+        setIsVisible(true)
+        animateCounter('clients', 500, 2000)
+        animateCounter('experience', 15, 1500)
+        animateCounter('support', 24, 1000)
+        animateCounter('uptime', 100, 1200)
+
+        values.forEach((_, index) => {
+          setTimeout(() => {
+            setVisibleValues(prev => [...new Set([...prev, index])])
+          }, index * 200)
+        })
+      }
+    }, 1000) // Show after 1 second if intersection observer hasn't triggered
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !isVisible) {
+            clearTimeout(mobileFallback) // Clear fallback if intersection observer triggers
             setIsVisible(true)
 
             // Start counter animations
@@ -33,13 +51,16 @@ const About = () => {
           }
         })
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 } // Lower threshold for better mobile detection
     )
 
     const element = document.getElementById('about')
     if (element) observer.observe(element)
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      clearTimeout(mobileFallback)
+    }
   }, [isVisible])
 
   const animateCounter = (key, target, duration) => {
