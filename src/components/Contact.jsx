@@ -38,7 +38,7 @@ const Contact = () => {
       icon: '📞',
       title: 'Phone',
       details: ['07405 428259'],
-      description: 'Available 24/7 for emergencies'
+      description: 'Mon–Fri 8am–6pm, urgent enquiries welcome'
     },
     {
       icon: '📧',
@@ -60,7 +60,7 @@ const Contact = () => {
         <div className="contact-header">
           <h2 className="contact-title">Contact Us</h2>
           <p className="contact-subtitle">
-            Need professional security services? Contact our team for a free quote and consultation
+            Looking for reliable staffing solutions? Get in touch with our team for a free consultation and tailored quote
           </p>
         </div>
 

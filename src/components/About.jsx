@@ -18,8 +18,8 @@ const About = () => {
         setIsVisible(true)
         animateCounter('clients', 500, 2000)
         animateCounter('experience', 15, 1500)
-        animateCounter('support', 24, 1000)
-        animateCounter('uptime', 100, 1200)
+        animateCounter('support', 2000, 1000)
+        animateCounter('uptime', 50, 1200)
 
         values.forEach((_, index) => {
           setTimeout(() => {
@@ -39,8 +39,8 @@ const About = () => {
             // Start counter animations
             animateCounter('clients', 500, 2000)
             animateCounter('experience', 15, 1500)
-            animateCounter('support', 24, 1000)
-            animateCounter('uptime', 100, 1200)
+            animateCounter('support', 2000, 1000)
+            animateCounter('uptime', 50, 1200)
 
             // Animate value cards with stagger
             values.forEach((_, index) => {
@@ -72,9 +72,8 @@ const About = () => {
 
       setCounters(prev => ({
         ...prev,
-        [key]: key === 'support' ? Math.floor(easeOutQuart * target) + '/7' :
-               key === 'uptime' ? Math.floor(easeOutQuart * target) + '%' :
-               Math.floor(easeOutQuart * target) + (key === 'clients' ? '+' : '+')
+        [key]: key === 'uptime' ? Math.floor(easeOutQuart * target) + '+' :
+               Math.floor(easeOutQuart * target) + '+'
       }))
 
       if (progress < 1) {
@@ -87,24 +86,24 @@ const About = () => {
 
   const values = [
     {
-      icon: '🛡️',
-      title: '24/7 Protection',
-      description: 'Round-the-clock security services ensuring your business is protected at all times.'
+      icon: '✅',
+      title: 'Full Compliance',
+      description: 'Every worker we supply is fully vetted, right-to-work checked, and compliant with UK employment law.'
     },
     {
       icon: '⚡',
-      title: 'Rapid Response',
-      description: 'Immediate action and emergency response when security matters most.'
+      title: 'Fast Deployment',
+      description: 'Rapid turnaround on staffing requests — we supply reliable workers at short notice to meet your deadlines.'
     },
     {
-      icon: '👁️',
-      title: 'Advanced Monitoring',
-      description: 'State-of-the-art surveillance and monitoring systems for comprehensive coverage.'
+      icon: '🤝',
+      title: 'Dedicated Partnership',
+      description: 'We work as an extension of your business, understanding your needs and delivering consistent workforce solutions.'
     },
     {
-      icon: '🔥',
-      title: 'Fire Safety Excellence',
-      description: 'Professional fire safety management and compliance with industry standards.'
+      icon: '🏆',
+      title: 'Quality Workforce',
+      description: 'Pre-screened, experienced, and motivated workers who are ready to contribute from day one.'
     }
   ]
 
@@ -113,29 +112,29 @@ const About = () => {
       <div className="about-container">
         <div className={`about-content ${isVisible ? 'animate-in' : ''}`}>
           <div className="about-text">
-            <h2 className="about-title">About Rowan Security UK Limited</h2>
+            <h2 className="about-title">About Rowan Solutions UK Limited</h2>
             <div className="about-description">
               <p>
-                Rowan Security UK Limited has been providing security to businesses across the UK since 2003.
-                We offer a comprehensive range of professional security services designed to protect your business,
-                assets, and people with the highest standards of reliability and professionalism.
+                Rowan Solutions UK Limited is a leading labour provider and employment agency serving businesses
+                across the UK since 2003. We specialise in supplying skilled, compliant, and reliable workers to
+                industries including warehousing, logistics, manufacturing, healthcare, and hospitality.
               </p>
               <p>
-                From our base in the UK, we manage a team of experienced security professionals who help businesses
-                of all sectors and sizes operate smoothly and securely. Our expertise spans waking watch services,
-                fire safety management, CCTV monitoring, security personnel, and comprehensive alarm systems.
+                From our base in Manchester, we manage a large pool of pre-vetted workers who are ready to
+                integrate seamlessly into your operations. Our dedicated account managers ensure every placement
+                is handled with professionalism, from initial briefing through to on-site management.
               </p>
               <p>
-                At Rowan Security, we're your one-stop solution for all security needs. Whether you require security
-                guards, fire wardens, key holding services, or advanced monitoring systems, we provide tailored packages
-                to meet your specific requirements with a single point of contact for your convenience.
+                At Rowan Solutions, we are more than just a staffing agency — we are your workforce partner.
+                Whether you need temporary cover, a permanent hire, or a fully managed on-site labour solution,
+                we tailor our services to meet your exact requirements with a single point of contact.
               </p>
             </div>
 
             <div className="about-stats">
               <div className="stat">
                 <div className="stat-number">{counters.clients}</div>
-                <div className="stat-text">Satisfied Clients</div>
+                <div className="stat-text">Client Businesses</div>
               </div>
               <div className="stat">
                 <div className="stat-number">{counters.experience}</div>
@@ -143,17 +142,17 @@ const About = () => {
               </div>
               <div className="stat">
                 <div className="stat-number">{counters.support}</div>
-                <div className="stat-text">Support Available</div>
+                <div className="stat-text">Workers Placed</div>
               </div>
               <div className="stat">
                 <div className="stat-number">{counters.uptime}</div>
-                <div className="stat-text">Uptime Guarantee</div>
+                <div className="stat-text">Industries Served</div>
               </div>
             </div>
           </div>
 
           <div className="about-values">
-            <h3 className="values-title">Our Core Values</h3>
+            <h3 className="values-title">Why Choose Us</h3>
             <div className="values-grid">
               {values.map((value, index) => (
                 <div

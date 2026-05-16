@@ -7,40 +7,40 @@ const Services = () => {
 
   const services = [
     {
-      icon: '👁️',
-      title: 'Waking Watch',
-      description: '24/7 monitoring and rapid response services to protect your property during non-business hours and emergency situations.',
-      features: ['24/7 Monitoring', 'Rapid Response', 'Property Checks', 'Emergency Response', 'Fire Alarm Response', 'Hybrid Solutions']
+      icon: '🏭',
+      title: 'Industrial & Warehouse Staffing',
+      description: 'Reliable supply of experienced warehouse operatives, pickers, packers, and forklift drivers to keep your operations running at full capacity.',
+      features: ['Pickers & Packers', 'Forklift Operators', 'Warehouse Operatives', 'Short & Long Term', 'Flexible Shifts', 'Same-Day Cover']
     },
     {
-      icon: '🚨',
-      title: 'Fire Wardens',
-      description: 'Professional fire safety personnel trained to manage evacuation procedures and ensure building safety compliance.',
-      features: ['Evacuation Management', 'Safety Training', 'Compliance Checks', 'Emergency Procedures', 'Building Safety', 'Staff Training']
+      icon: '🚛',
+      title: 'Logistics & Distribution',
+      description: 'Experienced logistics personnel including drivers, dispatch staff, and transport administrators to support your supply chain.',
+      features: ['Delivery Drivers', 'Dispatch Operatives', 'Transport Admin', 'HGV Support', 'Multi-Drop Routes', 'Nationwide Cover']
     },
     {
-      icon: '📹',
-      title: 'CCTV Monitoring',
-      description: 'Advanced surveillance systems with real-time monitoring and intelligent video analytics for comprehensive security coverage.',
-      features: ['24/7 Monitoring', 'HD Cameras', 'Remote Access', 'Motion Detection', 'Video Analytics', 'Incident Recording']
+      icon: '🏥',
+      title: 'Healthcare Staffing',
+      description: 'Qualified and DBS-checked healthcare professionals for NHS trusts, care homes, and private healthcare providers across the UK.',
+      features: ['Care Assistants', 'Support Workers', 'DBS Checked', 'NHS Compliant', 'Registered Nurses', 'Temporary & Permanent']
     },
     {
-      icon: '🛡️',
-      title: 'Security Guards',
-      description: 'Professional security personnel trained in the latest protocols, providing static security, mobile patrols, and emergency response.',
-      features: ['Trained Personnel', 'Static Security', 'Mobile Patrols', 'Emergency Response', 'Access Control', '24/7 Availability']
+      icon: '🍽️',
+      title: 'Hospitality Staffing',
+      description: 'Experienced hospitality staff for hotels, restaurants, events, and catering companies — available at short notice for any shift.',
+      features: ['Chefs & Kitchen Staff', 'Front of House', 'Bar Staff', 'Event Crew', 'Housekeeping', 'Flexible Booking']
     },
     {
-      icon: '🔥',
-      title: 'Fire Alarm Monitoring',
-      description: 'Comprehensive fire alarm systems monitoring with immediate response capabilities to protect lives and property.',
-      features: ['24/7 Monitoring', 'Immediate Response', 'System Maintenance', 'Compliance Testing', 'Alarm Verification', 'Emergency Protocols']
+      icon: '📋',
+      title: 'On-Site Management',
+      description: 'Dedicated on-site supervisors and team leaders who integrate directly into your operations to manage and coordinate your workforce.',
+      features: ['Dedicated Supervisors', 'Team Leaders', 'Attendance Reporting', 'Performance Monitoring', 'Shift Coordination', 'Direct Communication']
     },
     {
-      icon: '🔑',
-      title: 'Key Holding',
-      description: 'Secure key management and emergency access services ensuring authorized personnel can access premises when needed.',
-      features: ['Secure Storage', 'Emergency Access', 'Authorized Personnel', 'Access Logging', '24/7 Availability', 'Chain of Custody']
+      icon: '💼',
+      title: 'Payroll & Compliance',
+      description: 'Fully managed payroll, right-to-work checks, and employment compliance services so you can focus on running your business.',
+      features: ['Right-to-Work Checks', 'Managed Payroll', 'Holiday Pay', 'PAYE & Umbrella', 'IR35 Compliance', 'Weekly Pay']
     }
   ]
 
@@ -75,9 +75,9 @@ const Services = () => {
 
       <div className="services-container">
         <div className="services-header">
-          <h2 className="services-title">Our Security Services</h2>
+          <h2 className="services-title">Our Staffing Services</h2>
           <p className="services-subtitle">
-            Comprehensive security solutions tailored to protect your business, assets, and people
+            Flexible workforce solutions tailored to your industry — from temporary cover to fully managed on-site staffing
           </p>
         </div>
 
@@ -113,8 +113,8 @@ const Services = () => {
 
         <div className="services-cta">
           <div className="cta-content">
-            <h3>Need a Custom Security Solution?</h3>
-            <p>Contact our experts to discuss your specific security requirements</p>
+            <h3>Need a Tailored Staffing Solution?</h3>
+            <p>Speak with our team to discuss your workforce requirements — we'll build the right solution for your business</p>
             <button
               className="cta-btn"
               onClick={() => document.getElementById('contact').scrollIntoView()}

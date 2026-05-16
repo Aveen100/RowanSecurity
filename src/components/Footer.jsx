@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <p className="footer-text">
-          © {currentYear} Rowan Security UK Limited. All rights reserved.
+          © {currentYear} Rowan Solutions UK Limited. All rights reserved.
         </p>
       </div>
     </footer>
